@@ -1,0 +1,7 @@
+persist.sys.timezone=Europe/Brussels
+ro.fota.enable=0
+sms.convert.char.for.latam=0
+net.dns1=8.8.8.8
+net.dns2=8.8.4.4
+net.rmnet0.dns1=8.8.8.8
+net.rmnet0.dns2=8.8.4.4

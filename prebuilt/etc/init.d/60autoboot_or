@@ -1,0 +1,28 @@
+#!/system/bin/sh
+
+if [ ! -d /cache/recovery ]; then
+	mkdir /cache/recovery
+	chown 0:0 /cache/recovery
+	chmod 0777 /cache/recovery
+fi
+
+if [ ! -f /cache/recovery/command ]; then
+	echo "--update_package=SDCARD:update.zip" > /cache/recovery/command
+	sleep 1
+	chown 0:0 /cache/recovery/command
+	chmod 0644 /cache/recovery/command
+	sleep 1
+fi
+
+if [ -f /cache/recovery/command ]; then
+	
+	#trick the whatever deleting the command
+	#THIS WILL PREVENT AUTOMATIC OTA UPDATE!
+	
+	if [ ! -d /cache/recovery_stock ]; then
+		mkdir /cache/recovery_stock
+	fi
+	
+	mount -o bind /cache/recovery_stock /cache/recovery
+	
+fi
